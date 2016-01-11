@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+    <form method="POST" action="{% url 'bank.views.new_player' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" name="Create">
+    </form>
+{% endblock %}

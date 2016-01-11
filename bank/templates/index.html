@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Players</h2>
+    <ul>
+        {% for player in players %}
+            <li>{{ player.name }} <a href="{% url 'bank.views.player' player.id %}">[Me]</a></li>
+        {% empty %}
+            <li>No players yet</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'bank.views.new_player' %}">Join</a>
+{% endblock %}

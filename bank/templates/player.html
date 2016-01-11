@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h2>{{ player.name }} / ${{ player.balance }}</h2>
+    <h4>Transfer</h4>
+    <form method="POST" action="{% url 'bank.views.player' player.id %}">
+        <input type="hidden" name="form_name" value="transfer">
+        {% crispy transfer_form %}
+    </form>
+    <h4>Income</h4>
+    <form method="POST" action="{% url 'bank.views.player' player.id %}">
+        <input type="hidden" name="form_name" value="income">
+        {% crispy income_form %}
+    </form>
+<h4>Pass Go</h4>
+    <form method="POST" action="{% url 'bank.views.pass_go' %}">
+        {% csrf_token %}
+        <input type="hidden" name="player_id" value="{{ player.id }}">
+        <input type="submit" value="Pass Go" class="btn btn-primary">
+    </form>
+    <h4>Other Players</h4>
+
+    <ul>
+        {% for op in players %}
+            {% if op.id != player.id %}
+                <li>{{ op.name }}: ${{ op.balance }}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+{% endblock %}
