@@ -21,4 +21,4 @@ Each player connects on their own device and signs in, and is given a $1,500 sta
 - Little to no validation (of values or users. Don't play with people you don't trust)
 - Reset is heavy handded - deleting all players
 - No support for multiple games
-- Does not support the money-to-the-free-parking pool incorrect style of game play
+- Does not support the money-to-the-free-parking-pool incorrect style of game play
